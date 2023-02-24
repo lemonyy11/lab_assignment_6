@@ -2,7 +2,20 @@
 
 int search(int numbers[], int low, int high, int value) 
 {
-	return -1;
+    int mid;
+    if(low <= high){
+        mid = (low + high)/2;
+        if(value < numbers[mid]){
+            return binSearch(numbers, low, mid - 1, value);
+        }
+        else if(value > numbers[mid]){
+            return binSearch(numbers, low, mid + 1, value);
+        }
+        else{
+            return -1;
+        }
+    }
+     return 0;
 }
 
 void printArray(int numbers[], int sz)
